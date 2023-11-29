@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunrise and Sunset Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Sunrise and Sunset Times Dashboard</h1>
+    </header>
+
+    <main>
+        <section id="locationSection">
+            <!-- For 541 students: Location search -->
+            <div id="locationSearch">
+                <input type="text" id="locationInput" placeholder="Enter a location">
+                <button id="searchButton">Search Location</button>
+            </div>
+            
+            <!-- For 441 students: Select list of named locations -->
+            <div id="locationSelectDiv">
+                <select id="locationSelect">
+                    <option value="">Select a Location</option>
+                    <option value="34.0522,-118.2437">Los Angeles</option>
+                    <option value="40.7128,-74.0060">New York</option>
+                    <option value="48.8566,2.3522">Paris</option>
+                    <option value="35.6895,139.6917">Tokyo</option>
+                    <option value="-33.8688,151.2093">Sydney</option>
+                </select>
+            </div>
+
+            <!-- Current Geolocation -->
+            <div>
+                <button id="currentLocationButton">Use Current Location</button>
+            </div>
+        </section>
+
+        <section id="results">
+            <h2>Results</h2>
+            <div id="sunriseSunset">
+                <h3>Sunrise and Sunset</h3>
+                <p>Today: <span id="sunriseToday"></span> / <span id="sunsetToday"></span></p>
+                <p>Tomorrow: <span id="sunriseTomorrow"></span> / <span id="sunsetTomorrow"></span></p>
+            </div>
+
+            <div id="dawnDusk">
+                <h3>Dawn and Dusk</h3>
+                <p>Today: <span id="dawnToday"></span> / <span id="duskToday"></span></p>
+                <p>Tomorrow: <span id="dawnTomorrow"></span> / <span id="duskTomorrow"></span></p>
+            </div>
+
+            <div id="dayLength">
+                <h3>Day Length</h3>
+                <p>Today: <span id="dayLengthToday"></span></p>
+                <p>Tomorrow: <span id="dayLengthTomorrow"></span></p>
+            </div>
+
+            <div id="solarNoon">
+                <h3>Solar Noon</h3>
+                <p>Today: <span id="solarNoonToday"></span></p>
+                <p>Tomorrow: <span id="solarNoonTomorrow"></span></p>
+            </div>
+
+            <div id="timeZoneInfo">
+                <h3>Time Zone</h3>
+                <p><span id="timeZoneInfo"></span></p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Dashboard powered by sunrisesunset.io and geocode.maps.co APIs.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
