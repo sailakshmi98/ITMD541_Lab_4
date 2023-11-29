@@ -95,16 +95,17 @@ function fetchGeoCodeData(query) {
                 const lon = data[0].lon;
                 fetchSunriseSunsetData(`${lat},${lon}`);
             } else {
-                alert('No results found for the given location.');
-
+                // If no results are found, show an alert popup
+                alert('No results found for the given location. Please try a different search.');
             }
         })
         .catch(error => {
             console.error('Error fetching geocode data:', error);
-            alert('An error occurred while fetching geocode data.');
-        
+            // If an error occurs during the fetch, show an alert popup
+            alert('An error occurred while fetching geocode data. Please try again.');
         });
 }
+
 
 function formatTime(apiTime) {
     // Check if the time is already in 24-hour format
