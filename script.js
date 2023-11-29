@@ -65,24 +65,6 @@ function fetchDataAndUpdateTime(apiUrl, timeFrame) {
 }
 
 
-function fetchGeoCodeData(query) {
-    const geocodeUrl = `https://geocode.maps.co/search?q=${encodeURIComponent(query)}`;
-
-    fetch(geocodeUrl)
-        .then(response => response.json())
-        .then(data => {
-            if (data && data.length > 0) {
-                const lat = data[0].lat;
-                const lon = data[0].lon;
-                fetchSunriseSunsetData(`${lat},${lon}`);
-            } else {
-                console.error('No results found for the given location.');
-            }
-        })
-        .catch(error => {
-            console.error('Error fetching geocode data:', error);
-        });
-}
 
 
 function updateDashboard(data, timeFrame) {
@@ -100,6 +82,28 @@ function updateDashboard(data, timeFrame) {
     } else {
         document.getElementById('timeZoneInfo').textContent = 'Time Zone data not available';
     }
+}
+
+function fetchGeoCodeData(query) {
+    const geocodeUrl = `https://geocode.maps.co/search?q=${encodeURIComponent(query)}`;
+
+    fetch(geocodeUrl)
+        .then(response => response.json())
+        .then(data => {
+            if (data && data.length > 0) {
+                const lat = data[0].lat;
+                const lon = data[0].lon;
+                fetchSunriseSunsetData(`${lat},${lon}`);
+            } else {
+                alert('No results found for the given location.');
+
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching geocode data:', error);
+            alert('An error occurred while fetching geocode data.');
+        
+        });
 }
 
 function formatTime(apiTime) {
